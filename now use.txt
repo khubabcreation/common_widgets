@@ -1,0 +1,76 @@
+   if (widget.dateController.text.isNotEmpty) {
+                PurchaseInformationModel.date =
+                    widget.dateController.text.toString();
+                PurchaseInformationModel.accountType =
+                    accountId == "1" ? 'credit' : 'debit';
+                PurchaseInformationModel.credit_amount =
+                    widget.amountController.text.trim().toString();
+                Navigator.pop(context);
+                FocusManager.instance.primaryFocus!.unfocus();
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Fill All Fields'),
+                  ),
+                );
+              }
+..............................this is code of purchase screen button 
+
+
+ if (key.currentState!.validate()) {
+                  PurchaseInformationModel.price =
+                      unitController.text.toString();
+                  PurchaseInformationModel.quantity =
+                      quantityController.text.toString();
+                
+                }
+.............................purchase details screen
+
+
+ if (setDefaultMake) {
+                    first_item =
+                        snapshot.data!.docs[0].get('name_of_RawMaterial');
+                  }
+
+this is the function of drop down button!!!!!!....................
+
+Drop Down Button 
+  return Padding(
+                    padding: EdgeInsets.all(30),
+                    child: Card(
+                      color: AppColors.freshgreen,
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton(
+                          hint: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'Select the Raw Material',
+                              style: TextStyle(color: AppColors.lightcolor),
+                            ),
+                          ),
+                          isExpanded: true,
+                          value: first_item,
+                          items: snapshot.data!.docs.map((value) {
+                            return DropdownMenuItem(
+                              value: value.get('name_of_RawMaterial'),
+                              child: Center(
+                                  child: Text(
+                                '${value.get('name_of_RawMaterial')}',
+                                style: TextStyle(color: AppColors.lightcolor),
+                              )),
+                            );
+                          }).toList(),
+                          onChanged: (value) {
+                            setState(
+                              () {
+                                first_item = value;
+                                setDefaultMake = false;
+                                setDefaultMakeModel = true;
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                  );
+.........................................................

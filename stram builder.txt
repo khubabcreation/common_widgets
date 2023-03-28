@@ -1,0 +1,58 @@
+StreamBuilder(
+          stream: dbref_production,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              } else if (snapshot.connectionState == ConnectionState.active) {
+
+                return ListView.builder(
+                  itemCount: snapshot.data!.docs.length,
+                  itemBuilder: (context, index) {
+
+
+
+               //     String name = snapshot.data!.docs[index]['starting_date'].toString();
+                    String price = snapshot.data!.docs[index]['id'].toString();
+               //     String quantity = snapshot.data!.docs[index]['isCompleted'].toString();
+                    String material_id = snapshot.data!.docs[index]['material_id'].toString();
+
+                    return Padding(
+                      padding:   EdgeInsets.all(8.0),
+                      child: SizedBox(
+                        height: height*0.2,
+                        width: width*0.2,
+                        child: InkWell(
+                          child: Card(
+                              elevation: 14.0,
+                              color: AppColors.freshgreen,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                 // Text(name.toString(),style: TextStyle(fontSize: 32,fontFamily: 'courgette',color:AppColors.lightcolor),),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+
+                                        Text('quantity : $quantity',style: TextStyle(fontSize: 16,color: AppColors.lightcolor)),
+                                        Text('name : $product_name',style: TextStyle(fontSize: 16,color: AppColors.lightcolor),),
+
+
+                                      ],),
+                                  ),
+
+
+                                ],)),
+                        ),
+                      ),
+                    );
+                  },
+                );
+              }
+              return Text('Some thing went Wrong');
+            }
+            return Center(child: CircularProgressIndicator());
+          },
+        ),

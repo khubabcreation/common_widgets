@@ -1,0 +1,43 @@
+// BlocBuilder<StatusBloc, StatusState>(
+                //   builder: (context, state) {
+                //     if (state is StatusInitial) {
+                //       return DropdownButton(
+                //         ///.......................................
+                //           dropdownColor: AppColors.lightcolor,
+                //           hint: Text('Status',style: TextStyle(color: Colors.black)),
+                //           value: basicValue,
+                //           items: statuslist.map((String valueItem) {
+                //             return DropdownMenuItem(
+                //               value: valueItem,
+                //               child: Text(valueItem,style: TextStyle(color: AppColors.freshgreen)),
+                //             );
+                //           }).toList(),
+                //           onChanged: (newvalue) {
+                //             Provider.of<StatusBloc>(context, listen: false).add(
+                //                 getStatusEvent(status: newvalue.toString()));
+                //           });
+                //     } else if (state is statusLoadingState) {
+                //       return CircularProgressIndicator();
+                //     } else if (state is statusLoadedState) {
+                //       mystatus = state.mystatus;
+                //       return DropdownButton(
+                //         ///................green
+                //               dropdownColor: AppColors.freshgreen,
+                //           hint: Text('Status'),
+                //           value: mystatus,
+                //           items: statuslist.map((String valueItem) {
+                //             return DropdownMenuItem(
+                //               value: valueItem,
+                //               child: Text(valueItem),
+                //             );
+                //           }).toList(),
+                //           onChanged: (newvalue) {
+                //             Provider.of<StatusBloc>(context, listen: false).add(
+                //                 getStatusEvent(status: newvalue.toString()));
+                //           });
+                //     } else if (state is statusErrorState) {
+                //       return Text('Error occured in Error State ');
+                //     }
+                //     return SizedBox();
+                //   },
+                // ),

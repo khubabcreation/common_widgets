@@ -1,0 +1,10 @@
+{
+  "customer_name" : "name of customer",
+  "has_Po" : "has po or not",
+  "quantity" : "quantity",
+  "product_amount" : "product amount",
+  "qamount" : "qamount kitni ha",
+  "remaining_amount" : "remaining_amount ",
+  "totel_amount" : "totel bill ",
+  
+},
